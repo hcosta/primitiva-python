@@ -6,19 +6,14 @@ Descripción
 
 Un simulador escrito en Python del Sorteo de la Primitiva.
 
-Utilización y configuración
+Utilización
 ---------------------------
 
-Editar las líneas para crear una configuración:
+Para ejecutar el programa a partir del código fuente necesitas:
 
-*   apuesta = [0, 1, 49, 3, 23, 43] 
-*   reintegro = 7                   
-*   repeticiones = 1000             
-*   minimo = 3   
+	Librería wxPython - http://www.wxpython.org/download.php#stable
 
-Compilar con: python Sorteo.py
+Ejecutar por terminal: python PrimitivaGUI.py
 
-Próximamente
-------------
+Ejecutar con doble clic: Añadir Python al PATH e incluir el formato .PY en el PATHEXT
 
-Pronto intentaré hacer una versión con GUI y más opciones.

@@ -3,18 +3,19 @@
     :author: Hector Costa Guzman
     :version: 0.1 """
 
-import random
+from random import *
 
 class Bombo:
     """Genera un Bombo con bolas (numeros)."""
     def __init__(self):
         """Inicializa la clase."""
         self.bolas = [i+1 for i in range(49)]
-        self.reintegro = random.randint(1,  9)
+        shuffle(self.bolas)
+        self.reintegro = randint(1,  9)
         
     def extraerBola(self):
         """Extrae una bola (numero) del Bombo."""
-        return self.bolas.pop(random.randint(1,  len(self.bolas)-1))
+        return self.bolas.pop(randint(1,  len(self.bolas)-1))
         
     def getBolas(self):
         """Retorna la lista de bolas (numeros)."""

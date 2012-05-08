@@ -28,6 +28,10 @@ class Sorteo:
         """Establece la lista con la apuesta."""
         self.apuesta = apuesta
         
+    def getApuesta(self):
+        """Devuelve la lista con la apuesta."""
+        return self.apuesta
+        
     def getAciertos(self):
         """Compara las apuestas y las bolas sacadas del bombo
                 y devuelve el numero de aciertos."""
@@ -53,9 +57,22 @@ class Sorteo:
                 
     def getReintegro(self):
         """Devuelve el reintegro."""
-        return self.reintegro        
+        return self.reintegro     
     
-"""Script de ejemplo"""
+    def reiniciarSorteo(self):
+        self.bolasPremiadas = None
+        self.bolasPremiadas = []
+        self.bombo = Bombo()
+        self.aciertos = 0
+        # Sacamos 6 bolas del bombo y las guardamos
+        for i in range(6): 
+            self.bolasPremiadas.append(self.bombo.extraerBola())
+        # Sacamos el complementario y lo guardamos
+        self.complementario = self.bombo.extraerBola()
+        # Sacamos el reintegro
+        self.reintegro = self.bombo.getReintegro()
+    
+"""Script de ejemplo
 apuesta = [0, 1, 49, 3, 23, 43] # APUESTA: Lista de 6 numeros del 1 al 49 no repetidos
 reintegro = 7                   # REINTEGRO: 1 numero del 1 al 9
 repeticiones = 1000             # REPETICIONES: Numero de veces a repetir el sorteo
@@ -78,4 +95,4 @@ for i in range(repeticiones):
         print "Repeticion %d\nSorteo %s\nComplementario > [%s] %s toca\nAciertos %d\nReintegro [%d] > %s toca\n%s" % (i, 
                                                             s.getBolasPremiadas(), s.getComplementario(), resCom,
                                                             aciertos, s.getReintegro(), resRei, "="*50)
-    s = None
+    s = None"""

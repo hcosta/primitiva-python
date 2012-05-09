@@ -71,28 +71,3 @@ class Sorteo:
         self.complementario = self.bombo.extraerBola()
         # Sacamos el reintegro
         self.reintegro = self.bombo.getReintegro()
-    
-"""Script de ejemplo
-apuesta = [0, 1, 49, 3, 23, 43] # APUESTA: Lista de 6 numeros del 1 al 49 no repetidos
-reintegro = 7                   # REINTEGRO: 1 numero del 1 al 9
-repeticiones = 1000             # REPETICIONES: Numero de veces a repetir el sorteo
-minimo = 3                      # MINIMO: Mostrar a partir de 3 o mas aciertos
-
-print "="*50    
-print "NUMERO APOSTADO\t\t%s" % apuesta
-print "REINTEGRO\t\t[%d]\nREPETICIONES\t\t%d " % (reintegro, repeticiones)
-print "MOSTRANDO RESULTADOS A PARTIR DE -%d- ACIERTOS " % minimo
-print "="*50   
-for i in range(repeticiones):
-    s = Sorteo()
-    s.setApuesta(apuesta)
-    aciertos = s.getAciertos()
-    resCom = "NO" 
-    resRei = "NO"
-    if s.isComplementarioInApuesta(): resCom = "SI"
-    if reintegro == s.getReintegro(): resRei = "SI"
-    if aciertos >= minimo:
-        print "Repeticion %d\nSorteo %s\nComplementario > [%s] %s toca\nAciertos %d\nReintegro [%d] > %s toca\n%s" % (i, 
-                                                            s.getBolasPremiadas(), s.getComplementario(), resCom,
-                                                            aciertos, s.getReintegro(), resRei, "="*50)
-    s = None"""

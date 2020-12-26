@@ -15,7 +15,7 @@
 
 from Sorteo import *
 from random import *
-from thread import *
+from _thread import *
 import wx
 import threading
 import time
@@ -35,7 +35,7 @@ class MyFrame1 ( wx.Frame ):
         
         wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"Simulador Sorteo Primitiva", pos = wx.DefaultPosition, size = wx.Size( 580,280 ) )
         
-        self.SetSizeHintsSz( wx.Size( 580,280 ), wx.Size( 580,280 ) )
+        self.SetSizeHints( wx.Size( 580,280 ), wx.Size( 580,280 ) )
         
         bSizer1 = wx.BoxSizer( wx.VERTICAL )
         
@@ -99,7 +99,7 @@ class MyFrame1 ( wx.Frame ):
         bSizer5.Add( self.m_textCtrl71, 0, wx.ALL, 5 )
         
         
-        bSizer5.AddSpacer( ( 0, 0), 1, wx.EXPAND, 5 )
+        # bSizer5.AddSpacer( ( 0, 0), 1, wx.EXPAND, 5 )
         
         self.m_button1 = wx.Button( self.m_panel1, wx.ID_ANY, u"Generar apuesta", wx.DefaultPosition, wx.DefaultSize, 0 )
         bSizer5.Add( self.m_button1, 0, wx.ALL, 5 )
@@ -120,7 +120,7 @@ class MyFrame1 ( wx.Frame ):
         bSizer4.Add( self.m_choice1, 0, wx.ALL, 5 )
         
         
-        bSizer4.AddSpacer( ( 0, 0), 1, wx.EXPAND, 5 )
+        # bSizer4.AddSpacer( ( 0, 0), 1, wx.EXPAND, 5 )
         
         self.m_button2 = wx.Button( self.m_panel1, wx.ID_ANY, u"Empezar simulación", wx.DefaultPosition, wx.DefaultSize, 0 )
         bSizer4.Add( self.m_button2, 0, wx.ALL, 5 )
@@ -262,7 +262,7 @@ class MyFrame1 ( wx.Frame ):
         
         self.SetSizer( bSizer1 )
         self.Layout()
-        self.m_statusBar2 = self.CreateStatusBar( 1, wx.ST_SIZEGRIP, wx.ID_ANY )
+        self.m_statusBar2 = self.CreateStatusBar( 1, wx.STB_SIZEGRIP, wx.ID_ANY )
         self.m_menubar1 = wx.MenuBar( 0 )
         self.m_menu1 = wx.Menu()
         self.m_menuItem1 = wx.MenuItem( self.m_menu1, wx.ID_EXIT, u"Salir", wx.EmptyString, wx.ITEM_NORMAL )
@@ -315,7 +315,7 @@ class MyFrame1 ( wx.Frame ):
         
         self.reiniciarCuenta()
         
-        r = int(self.m_choice1.GetStringSelection()) / 1000
+        r = int(float(self.m_choice1.GetStringSelection()) / 1000)
         for i in range(r):
             thread = threading.Thread(target=self.do_big_work)
             thread.setDaemon(0)
@@ -387,7 +387,7 @@ class MyFrame1 ( wx.Frame ):
     
     def m_menuItem111OnMenuSelection( self, event ):
         """Genera una apuesta aleatoria para el usuario"""
-        dlg = wx.MessageDialog( self, "Este es un simulador creado por Héctor Costa Guzmán y programado en Python.\n\nMás información en http://hcosta.info", "Sobre el Simulador del Sorteo de la Lotería Primitiva", wx.OK)
+        dlg = wx.MessageDialog( self, "Este es un simulador creado por Héctor Costa Guzmán y programado en Python.\n\nMás información en https://github.com/hcosta/primitiva-python", "Sobre el Simulador del Sorteo de la Lotería Primitiva", wx.OK)
         dlg.ShowModal()
         dlg.Destroy()
         
